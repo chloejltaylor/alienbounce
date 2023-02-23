@@ -13,7 +13,7 @@ physics: {
             gravity: {
             y: 200
             },
-            debug: false
+            debug: true
         }
     }
 })
