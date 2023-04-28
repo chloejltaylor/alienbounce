@@ -1,3 +1,4 @@
+// import Phaser from './lib/phaser.js'
 import Phaser from './lib/phaser.js'
 import Game from './scenes/game.js'
 import GameOver from './scenes/gameOver.js'
@@ -15,5 +16,9 @@ physics: {
             },
             debug: false
         }
-    }
+    },
+scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH
+}
 })

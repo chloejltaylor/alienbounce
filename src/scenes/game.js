@@ -187,27 +187,44 @@ export default class Game extends Phaser.Scene
    
 
         // player movement code
-        const touchingDown = this.player.body.touching.down
+
+
+                if(this.input.activePointer.isDown && this.input.activePointer.position.x < 322) {
+            this.player.setVelocityX(-200)
+            console.log(this.input.activePointer.position.x)
+
+        } 
+        else
+        if(this.input.activePointer.isDown && this.input.activePointer.position.x > 322) {
+            this.player.setVelocityX(200)
+            console.log(this.input.activePointer.position.x)
+
+        } 
+    
+        else {
+            this.player.setVelocityX(0)
+        }
+        // const touchingDown = this.player.body.touching.down
 
         
 
 
-            if(this.player.texture.key == 'player' || this.player.texture.key == 'player-jump' || this.player.texture.key == 'player-zoom'){
+        //     if(this.player.texture.key == 'player' || this.player.texture.key == 'player-jump' || this.player.texture.key == 'player-zoom'){
     
-                if(this.cursors.left.isDown && !touchingDown)
-                {
-                    this.player.setVelocityX(-200)
-                } 
-                else if (this.cursors.right.isDown && !touchingDown)
-                {
-                    this.player.setVelocityX(200)
-                }
-                else
-                {
-                    this.player.setVelocityX(0)
+        //         if(this.cursors.left.isDown && !touchingDown)
+        //         {
+        //             this.player.setVelocityX(-200)
+        //         } 
+        //         else if (this.cursors.right.isDown && !touchingDown)
+        //         {
+        //             this.player.setVelocityX(200)
+        //         }
+        //         else
+        //         {
+        //             this.player.setVelocityX(0)
                     
-                }
-        }
+        //         }
+        // }
 
 
 
@@ -289,7 +306,7 @@ export default class Game extends Phaser.Scene
                 this.player.setTexture('player-jump')
                 this.sound.play('pop')
                 this.numberofbounces++
-                console.log(this.numberofbounces)
+                // console.log(this.numberofbounces)
                 
             }
         }
